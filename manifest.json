@@ -7,10 +7,12 @@
   "protectedBytes": 542539,
   "loaderSha256": "eddbdb8b44cb29ba46d7e61ea49b93a68fecccb163a0913d103e288268e8f9b3",
   "url": "https://raw.githubusercontent.com/stiickmann/VANTA-testers/main/VANTA-test.obfuscated.lua",
-  "published": false,
+  "published": true,
   "protection": "Lightweight reversible source packing, not encryption or a security boundary",
   "encoded": "Base64 of a keyed byte transform; exact original source after decoding; Adler checksum detects corruption",
   "runtimeChanges": false,
   "automaticUpload": false,
-  "unattendedOperationVerified": false
+  "unattendedOperationVerified": false,
+  "rawDownloadVerifiedUtc": "2026-10-20T07:44:33.8767434Z",
+  "repository": "https://github.com/stiickmann/VANTA-testers"
 }
