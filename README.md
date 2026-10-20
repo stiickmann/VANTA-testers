@@ -1,30 +1,28 @@
 # VANTA testers
 
-VANTA 1.0.8 experimental tester build for Matcha. Paste this into Matcha and execute:
+VANTA 1.0.9 experimental Matcha build. Paste into Matcha:
 
 ```lua
 loadstring(httpget("https://raw.githubusercontent.com/stiickmann/VANTA-testers/main/VANTA-test.obfuscated.lua"))()
 ```
 
-All automation starts OFF. Stop other farms, choose your currency/bag capacity, select Underground for flat-pose farming, and press Start Farm. F8 stops automation; End minimizes/restores the interface. Re-run this loader after restarting Matcha.
+All automation starts OFF. Stop older/competing farms, choose the actual currency and capacity, select Underground and press Start Farm. F8 stops; End minimizes/restores the VANTA menu. Reuse the loader after restarting Matcha. The guarded loader is in `loader.lua`; offline use is in `loader.local.lua`.
 
-The guarded download version is in `loader.lua`. For offline use, put `VANTA-test.obfuscated.lua` in Matcha's file workspace and run `loader.local.lua`.
+## Changes
 
-## Changes in 1.0.8
+- Removed the lying/flat pose. Restored upright lower-plane travel and the brief rise to actual candy contact. Short trips no longer cancel the depth offset through an early upward ramp.
+- Depth uses the floor underside and highest body/accessory extent. Unsupported floors and unavailable required body geometry wait/skip rather than accepting half-avatar clearance. Retargeting from an underground plane does not subtract another complete depth.
+- Freefall toward a lower target and sideways drift while falling do not count as farming/recovery progress. Falling detection works independently of Anti-Fling. Existing rejection/manual-stop/retry limits remain.
+- Fixed initial lobby detection when Alive is missing, using measured standing body/floor and an inactive timer. Existing GUI layout is preserved.
 
-- Underground mode lays the avatar flat with a supported root rotation, then uses Position-based travel. It restores the original orientation at the observed position when cancelled.
-- Pickup contact stays below the candy instead of lifting back to its center. Measured floors use full-body bounds; unknown floor clearance remains unverified, and unreachable contacts are skipped.
-- Changing Stay Under Lobby during a round preserves existing farming/hover support, including full-bag waiting. Reapplying that setting does not restart movement.
-- Existing controls, GUI layout and bounded recovery limits are retained. 272 local behavior checks and 12 distribution checks pass.
+## Verification limits
 
-## Test status
+277 local behavior checks and 12 distribution checks pass. Final 1.0.9 gameplay, whole-avatar clearance, real pickups and sustained recovery are unverified after the MCP connection disconnected. Earlier 1.0.8 samples do not validate this final build. The next autonomous phases require the user's visual confirmation; no unattended/undetected claim is made. Existing Matcha crashes and position-retention failures remain unresolved. A previously rotated character may need a normal game respawn before comparing the upright pose.
 
-This remains experimental. A finite pose comparison physically flattened/restored the torso and head. An earlier candidate verified one real Candy pickup while flat, three studs below candy height. Later BioLab movement corrections remain unresolved; the final revision enters the pose once and retains the ordinary Position travel path. The repeated-rotation candidate is not treated as a stability pass.
+Anti-AFK does not control window focus. Current ordinary-menu automatic reset needs Roblox selected and receiving keyboard input. Reliable minimized/background AFK use and banked full-bag rewards are unverified.
 
-A separate lobby observation accumulated 177.88 seconds of verified holding in a 180.02-second window. The journal later confirmed natural round-start release, followed by separate movement failures. This does not prove reliable lobby-to-pickup operation. Full-body clearance on unmeasured floors and several-hour AFK use are unverified. Matcha crashes also remain unresolved. A full bag is not proof of banked rewards.
+## Reporting and distribution
 
-## Reporting
+Report map, speed/mode, actual bag count, time running and errors/recovery. Logs stay in `VANTA/diagnostics` in your Matcha workspace. Review and share relevant logs manually; no telemetry or log uploads were added.
 
-Include map, movement mode/speed, actual bag reading, error/recovery and elapsed runtime. Diagnostic files stay in `VANTA/diagnostics` in your own Matcha workspace. Review relevant files and share manually; this package adds no telemetry or automatic log upload.
-
-This uses lightweight reversible obfuscation, not encryption, strong source protection or an undetected guarantee. The original application is restored byte-for-byte before execution. Hashes are in `manifest.json`; attribution is in `PROVENANCE.md`.
+Payload obfuscation is reversible, not encryption or detection protection. It restores exact development source bytes before execution. Hashes are in `manifest.json`; upstream attribution is in `PROVENANCE.md`.
