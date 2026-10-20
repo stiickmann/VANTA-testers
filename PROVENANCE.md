@@ -12,4 +12,6 @@ Local changes are explicitly specified by `tools/prepare-vendor.mjs`: VANTA pale
 
 The 1.0.1 stability repair also removes expired notification Drawings after a bounded grace period, caps the notification stack and exposes render/drawing counters for diagnostics. No GUI redesign or runtime asset/network dependency was added.
 
+The 1.0.13 visual changes are original local modifications in `tools/modernize-vendor.mjs`, `tools/panel-layout.mjs` and `tools/ui/`: vector glyphs, circular meter, top navigation, page panel layout, popup bounds and refreshed-text clipping. They preserve existing callbacks and add no downloaded assets. The user's collage and generated concept guide style only; no screenshot assets or third-party script algorithms were copied into the build.
+
 Upstream authors retain rights to their source. No license grant is invented here; verify upstream licensing before redistributing their library commercially.

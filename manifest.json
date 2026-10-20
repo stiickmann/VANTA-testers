@@ -1,22 +1,16 @@
 {
-  "version": "1.0.12",
-  "createdUtc": "2026-10-20T12:23:30.936Z",
-  "sourceSha256": "efa8755577607928e1081858b16295085f7e5c709bfdee232e0e5c1c0ad19297",
-  "sourceBytes": 438989,
-  "protectedSha256": "9195b0863ecfb9377e564979e82d6a43d208be835be436e6bfd9f0164c78c80e",
-  "protectedBytes": 586530,
-  "loaderSha256": "c3c63e86d65e6d2fbd09b06a033b172d3c9d54b0df38baf4181901181f1857c4",
+  "version": "1.0.13",
+  "createdUtc": "2026-10-20T13:18:22.028Z",
+  "sourceSha256": "7158073d03cb3452fe8d94d10ad5bdb08219ea60fad1c1d00b0504a6183aef65",
+  "sourceBytes": 451449,
+  "protectedSha256": "287d44be93bbec1e3e1262c5c833814f442375b1c0f1e2fe735b19f0e0e7c48b",
+  "protectedBytes": 603155,
+  "loaderSha256": "cf3063fa693276d0c2227e8725de553e149a4da22d7bc215b4020437dd112ed1",
   "url": "https://raw.githubusercontent.com/stiickmann/VANTA-testers/main/VANTA-test.obfuscated.lua",
-  "published": true,
+  "published": false,
   "protection": "Lightweight reversible source packing, not encryption or a security boundary",
   "encoded": "Base64 of a keyed byte transform; exact original source after decoding; Adler checksum detects corruption",
   "runtimeChanges": false,
   "automaticUpload": false,
-  "unattendedOperationVerified": false,
-  "payloadCommit": "e807bf95fc8565caea773caba53c7309143a7b2e",
-  "nativeTrialsPassed": false,
-  "nativeTrialElapsedSeconds": [
-    86.1025226000056,
-    69.8043959999923
-  ]
+  "unattendedOperationVerified": false
 }
