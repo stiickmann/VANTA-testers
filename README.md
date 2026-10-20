@@ -1,31 +1,35 @@
 # VANTA testers
 
-VANTA 1.0.11 experimental Matcha build. Use the same loader:
+VANTA 1.0.12 experimental Matcha build. Same loader:
 
 ```lua
 loadstring(httpget("https://raw.githubusercontent.com/stiickmann/VANTA-testers/main/VANTA-test.obfuscated.lua"))()
 ```
 
-All automation starts OFF. Stop older/competing scripts. Select the correct currency/capacity and desired farming mode. For combat, choose Behind target, enable Auto Shoot or Auto Stab All, and minimize VANTA. A real equipped/backpack Gun or Knife is required for the corresponding role. F8 stops; End minimizes/restores the existing menu.
+All automation starts OFF. Stop competing scripts first. F8 stops VANTA; End minimizes/restores its interface. Select the correct currency/capacity and farm mode.
 
 ## Changelog
 
-- Behind/Orbit acquires eligible living targets across the active map instead of applying the 250-stud aim-only range. Combat relocates directly and tracks/holds behind the target; fresh position retention is required before attack input. Dead/replaced characters and distant lobby locations are excluded.
-- Stab All cycles close contacts after a short contact window instead of staying on one survivor for twelve seconds. Its native minimum 0.9-second input cadence remains. A contact/teleport is not a guaranteed kill.
-- Shooting uses fresh torso/orientation/velocity readings and smaller close-range lead after relocation. Uses ordinary weapon input with normal cooldowns and server checks.
-- Supported-ground recovery accepts nearby/same-position landings after three stable floor/body checks. Rejected targets remain quarantined; recovery remains bounded. New characters/maps clear stale position-error text. Downward freefall remains excluded from useful route progress.
-- Upright farming pose and existing GUI layout preserved. The range slider now identifies its aim-only purpose.
+- Combat Only After Full Bag defaults on for both weapons. Requires two confirmed full readings from the current round before equipment/movement/aim/input. Disable it for immediate combat. Eligible full-bag combat precedes Auto Reset; missing targets/exhausted equip attempts release that reservation.
+- Hide Underground at Round Start parks the whole avatar below a measured floor before coins. A unique map can be discovered from measured Spawns before CoinContainer exists. Requires enabled farming and supported geometry.
+- Reset lobby retry/handoff state across rounds; preserve its preference after temporary entry failures. Keep underground support through counter/monitor transitions.
+- Vary Routes Between Players adds a bounded account-specific preference among nearby candies. No networking. Reduces identical routes; exclusive routes are not guaranteed.
+- Grab Gun on the Player page requests one active-map drop relocation, with a three-second inventory receipt deadline. Stolen/missing drops never count. Auto Shoot keeps its enabled/full-bag policy afterward.
+- Exclude a small bounded rejected corridor as well as the failed target. Legitimate quarantined routes do not consume the route watchdog's retry budget. Stop resumed position writes after a yielding Pause/ownership change.
+- Fair anti-fling scan shares prioritize each avatar's main body. Partial coverage is separate from errors. GUI layout and upright farming pose retained.
 
 ## Evidence and limitations
 
-300 local behavior cases, a separate complete-helper integration check, and 12 distribution cases pass. User-enabled native combat recorded a stab followed by target health 100 -> 0 about 0.10 seconds later and a shot followed by the same health change about 0.12 seconds later. Sole damage attribution is not established. A separate 60.0185373-second observer had zero eligible time and no additional inputs; it is not a stability pass.
+335 local behavior cases, a separate final-update integration check, 12 decoder/loader cases and three URL refusals pass. These are local checks, not gameplay stability acceptance.
 
-Controlled long-distance relocation, a full-server multi-victim sweep, the new native landing recovery and endurance remain unverified. Earlier movement corrections and Matcha hangs remain unresolved. No undetected or several-hour AFK guarantee. Overnight follow-up remains paused.
+Two finite native trials failed after 86.1025226 seconds (4 Candy gains / 3 verified receipts) and 69.804396 seconds (13 gains / 12 receipts). The revised Farmhouse trial verified whole-body early hiding and then real collection, followed by an unretained 3.08-stud step despite complete body-collider coverage. Binding/physics/server attribution remains unresolved. These results describe their recorded candidate hashes, not a clean acceptance of every final-source path.
 
-Ordinary reset uses Escape/R/Enter and needs Roblox focused and receiving keyboard input. Combat likewise needs foreground input and minimized VANTA. Anti-AFK does not focus Roblox; reliable background automation and full-bag reward banking remain unverified.
+Actual Grab Gun pickup, repeated live lobby cycles, an online two-tester route comparison, all maps, final full-bag combat/reset interaction and several-hour AFK use remain unverified. The five-second watchdog deliberately cannot clear confirmed position rejection, binding quarantine or exhausted recovery limits. Partial coverage does not establish fling immunity. No undetected guarantee. Overnight follow-up remains paused.
+
+Reset uses normal Escape/R/Enter and needs foreground Roblox input. Combat also needs foreground input and minimized VANTA. Anti-AFK does not focus Roblox. A full bag/reset does not prove reward banking.
 
 ## Reporting and distribution
 
-Report map, role, movement/combat mode, actual counter/target health, elapsed time, and errors/recovery. Diagnostic logs stay local in VANTA/diagnostics in your Matcha workspace; share relevant logs manually. No telemetry or automatic uploads.
+Report version, map, role, movement/combat settings, actual counter/health, elapsed time and errors/recovery. Logs remain local in VANTA/diagnostics in your Matcha workspace; share relevant logs manually. No automatic uploads.
 
-Obfuscation is reversible, not encryption or detection protection. Decoding restores exact development source. Hashes are in manifest.json; attribution is in PROVENANCE.md.
+Packing is reversible, not encryption or detection protection. It restores exact source. Manifest contains hashes; upstream attribution is in PROVENANCE.md. Only the encoded payload, loaders, manifest, README and provenance are published.
